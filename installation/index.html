@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Installation - Personal Management System</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Installation";
+    var mkdocs_page_input_path = "installation.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Personal Management System</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../requirements/">Requirements</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Installation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#installation">Installation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#linux">Linux</a></li>
+        
+            <li><a class="toctree-l3" href="#windows">Windows</a></li>
+        
+            <li><a class="toctree-l3" href="#general">General</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../developer-mode/">Developer mode</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../writing-module-backend/">Writing module - backend</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../writing-module-frontend/">Writing module - frontend</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding-menu-elements/">Adding menu elements</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tips-and-tricks-automatition/">Tips and tricks - automatition</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tips-and-tricks-special-controllers/">Tips and tricks - special controllers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tips-and-tricks-patterns/">Tips and tricks - patterns</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../datalist-type/">DataList Type</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fontawesome-type/">Fontawesomepicker Type</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../final-thoughts/">Final thoughts</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Personal Management System</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Installation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="installation">Installation</h1>
+<ul>
+<li>I will not guide You here how to setup DB, what composer or node can do - just step by step guide and hints to make this project work</li>
+<li>Keep in mind that i write 98% of everything here from perspective of <strong>Linux</strong></li>
+</ul>
+<h2 id="linux">Linux</h2>
+<ul>
+<li>First You need the tools for managing packages<ul>
+<li><a href="https://linuxize.com/post/how-to-install-and-use-composer-on-ubuntu-18-04/">Installing composer</a></li>
+<li><a href="https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/">Installing npm and Node</a></li>
+</ul>
+</li>
+<li>Then You need environment    <ul>
+<li><a href="https://www.linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-18-04/">Installing LAMP</a></li>
+</ul>
+</li>
+<li>Unzip/put entire project into Your base html folder <ul>
+<li>usually <code>/var/www/html/YourFolder/</code></li>
+<li>beware that it's better to copy it via terminal as files like <code>.env</code> might not be copied via gui </li>
+</ul>
+</li>
+<li>Now open terminal </li>
+<li>Go to section <a href="./#general">general</a></li>
+</ul>
+<h2 id="windows">Windows</h2>
+<ul>
+<li>First You need the tools for managing packages<ul>
+<li><a href="https://getcomposer.org/doc/00-intro.md#installation-windows">Installing composer</a></li>
+<li><a href="https://nodejs.org/en/download/">Installing npm and Node</a></li>
+</ul>
+</li>
+<li>Then You need environment (Pick one)<ul>
+<li><a href="https://www.apachefriends.org/pl/index.html">Xampp</a></li>
+<li><a href="http://www.wampserver.com/en/">Wamp</a></li>
+</ul>
+</li>
+<li>Unzip/put entire project into Your base html folder which depends on aplication You use. <ul>
+<li>Check corresponding manuals where projects folders are for <strong>Xampp</strong> or <strong>Wampp</strong>, usually this is:<ul>
+<li><strong>Xampp</strong> <code>C:\xampp\htdocs</code></li>
+<li><strong>Wamp</strong> <code>c:\wamp\www</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Now open terminal - I'm using git bash terminal </li>
+<li>Go to section <a href="./#general">general</a></li>
+</ul>
+<h2 id="general">General</h2>
+<p>What You need generally:</p>
+<ul>
+<li>Technical knowledge (or someone with it)</li>
+<li>My downloaded repository</li>
+</ul>
+<h3 id="installing-packages">Installing packages</h3>
+<p><code>You will see ALOT of errors with npm packages - ignore them, everything works anyway.</code></p>
+<ul>
+<li>Run <code>composer install</code> (as sudo) (around 100mb to download) <ul>
+<li>In case You have this error <code>An error occurred: Could not resolve host: security.sensiolabs.org.</code><ul>
+<li>Run this command: <code>composer require sensiolabs/security-checker</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Run <code>composer require symfony/web-server-bundle --dev</code></p>
+</li>
+<li>
+<p>Now in normal case You would most likely need just one command to install packages but there are so messed up dependencies:</p>
+</li>
+<li>Run this commands one after another: (I recommend sudo - permission to write) (around 300 mb download)<ul>
+<li><code>npm update</code></li>
+<li><code>npm install -g --unsafe-perm</code></li>
+<li><code>npm i node-sass -g --unsafe-perm</code></li>
+<li><code>nodejs node_modules/node-sass/scripts/install.js</code></li>
+<li><code>npm rebuild node-sass</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="permissions">Permissions</h3>
+<ul>
+<li>In <code>root folder of project</code> run this commands:<ul>
+<li><code>sudo chown -R www-data var</code></li>
+<li><code>sudo chgrp -R www-data var</code></li>
+<li><code>sudo chmod -R 777 var</code>    </li>
+</ul>
+</li>
+</ul>
+<h3 id="configuring-environment">Configuring environment</h3>
+<ul>
+<li>Create a database that You will use for this application<ul>
+<li>preapre login for this database</li>
+<li>prepare password for this database</li>
+<li>preapre host and port for this database</li>
+</ul>
+</li>
+</ul>
+<h4 id="env">Env</h4>
+<ul>
+<li>If the file <code>.env</code> does not exist in the root folder - create it</li>
+<li>Open <code>.env</code> file inside root of project </li>
+<li>Add Your database connection as described in: <ul>
+<li><a href="https://symfony.com/doc/current/doctrine.html#configuring-the-database">Doctrine</a> (section: Configuring the Database) </li>
+<li>In my case it looks like this: <ul>
+<li><code>DATABASE_URL=mysql://user:password@127.0.0.1:3306/pms</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Set application environment to Production <ul>
+<li><code>APP_ENV=dev</code> to <code>APP_ENV=prod</code>     </li>
+</ul>
+</li>
+<li>Disable debugging <ul>
+<li><code>APP_DEBUG=0</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="services">Services</h4>
+<ul>
+<li>
+<p>In terminal go to Your project root folder</p>
+<ul>
+<li>(example: <code>cd/var/www/html/YourFolder</code>) </li>
+</ul>
+</li>
+<li>
+<p>Run this command: <code>bin/console --env=dev encrypt:genkey</code></p>
+<ul>
+<li><strong>Important!</strong> save somewhere the generated key<ul>
+<li>This key is used to encrypt and decrypt passwords stored in Passwords module</li>
+<li>Without this key You won't be able to decrypt Your passwords</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Edit the file: <code>config/services.yaml</code></p>
+<ul>
+<li>
+<p>Change section <code>parameters</code> to this:</p>
+<p><code>parameters:
+    locale: 'en' #Leave any other subsections like this one
+    encrypt_key: 'YourGeneratedKey goes here'</code> </p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="building-cache">Building cache</h4>
+<ul>
+<li>Now run this commands one after another <ul>
+<li><code>bin/console cache:clear</code></li>
+<li><code>bin/console cache:warmup</code></li>
+<li><code>bin/console doctrine:schema:update --env=dev --force</code><ul>
+<li>this is very important, due to symfony issues, making diff, or normal update generates incorrect sql where some nullable fields are NOT NULL</li>
+</ul>
+</li>
+<li><code>bin/console fos:user:create --super-admin</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="starting-application">Starting application</h3>
+<ul>
+<li>Now run symfony server as described: <ul>
+<li><a href="https://symfony.com/doc/current/setup/built_in_web_server.html">Built in web server</a><ul>
+<li>Just run this command from root folder of project: </li>
+<li><code>bin/console --env=dev server:run 0.0.0.0:8005</code><ul>
+<li>(or other port if this one is used) </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>You can now access Your project in browser: <ul>
+<li><code>http://127.0.0.1:8005</code> <ul>
+<li>(or other port that've You added) </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../developer-mode/" class="btn btn-neutral float-right" title="Developer mode">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../requirements/" class="btn btn-neutral" title="Requirements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../requirements/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../developer-mode/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

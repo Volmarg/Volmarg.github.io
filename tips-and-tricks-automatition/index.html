@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Tips and tricks - automatition - Personal Management System</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Tips and tricks - automatition";
+    var mkdocs_page_input_path = "tips-and-tricks-automatition.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Personal Management System</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../requirements/">Requirements</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../developer-mode/">Developer mode</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../writing-module-backend/">Writing module - backend</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../writing-module-frontend/">Writing module - frontend</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding-menu-elements/">Adding menu elements</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Tips and tricks - automatition</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#tips-and-tricks-automatition">Tips and tricks - automatition</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#automatic-datatable">Automatic datatable</a></li>
+        
+            <li><a class="toctree-l3" href="#automatic-ajax-form-submit">Automatic ajax form submit</a></li>
+        
+            <li><a class="toctree-l3" href="#automatic-crud-on-table-elements">Automatic crud on table elements</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tips-and-tricks-special-controllers/">Tips and tricks - special controllers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tips-and-tricks-patterns/">Tips and tricks - patterns</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../datalist-type/">DataList Type</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fontawesome-type/">Fontawesomepicker Type</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../final-thoughts/">Final thoughts</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Personal Management System</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Tips and tricks - automatition</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="tips-and-tricks-automatition">Tips and tricks - automatition</h1>
+<h2 id="automatic-datatable">Automatic datatable</h2>
+<p>If You have table then just add attribute to it <code>data-table="true"</code> - it will automatically turn table to datatable <strong>if</strong> the table is correct 
+ which means for example having the same amount of head columns and body columns.</p>
+<pre><code>    &lt;table id="MyJobAfterhours{{ afterhours_type }}" class="table table-striped table-bordered" cellspacing="0"
+        data-table="true" width="100%"&gt;
+        &lt;..&gt;
+    &lt;/table&gt;
+</code></pre>
+<h2 id="automatic-ajax-form-submit">Automatic ajax form submit</h2>
+<p>There are few things to do:</p>
+<ul>
+<li>Add class on element that wraps the form <code>add-record-form</code></li>
+<li>Next is passing the attribute with form <code>data-entity</code></li>
+<li>
+<p>Last thing is defining the special section in <code>crud.js</code> described in section <strong>TODO</strong></p>
+<pre><code>&lt;div class="col-md-6 align-self-center add-record-form"&gt;
+    {{ form(afterhours_form_view,{'attr':{'data-entity':"MyJobAfterhours"}}) }}
+&lt;/div&gt;
+</code></pre>
+</li>
+<li>
+<p>The same applies for the table that You use for given module - id should represent the same <code>data-entity</code> value,</p>
+<pre><code>&lt;table id="MyJobAfterhours{{ afterhours_type }}" class="table table-striped table-bordered" cellspacing="0"
+       data-table="true" width="100%"&gt;
+&lt;..&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="automatic-crud-on-table-elements">Automatic crud on table elements</h2>
+<p>As an example let's take the table used for <strong>MyCar</strong> module:</p>
+<pre><code>    &lt;table id="MyPaymentsSettings" class="table table-striped table-bordered" cellspacing="0" data-table="true" width="100%"&gt;
+        &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;td class="d-none"&gt;Id&lt;/td&gt;
+            &lt;td&gt;Name&lt;/td&gt;
+            &lt;td&gt;Actions&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+        {% for payment_type in payments_types %}
+            &lt;tr class="trash-parent car-single-data editable-parent save-parent" data-type="MyPaymentsSettings"&gt;
+                &lt;td class="d-none id"&gt;{{ payment_type.id }}&lt;/td&gt;
+                &lt;td class="value"&gt; {{ payment_type.value }}&lt;/td&gt;
+
+                &lt;td contenteditable="false"&gt;
+                    &lt;i class="fa fa-trash" aria-hidden="true"&gt;&lt;/i&gt;
+                    &lt;i class="far fa-edit"&gt;&lt;/i&gt;
+                    &lt;i class="far fa-save d-none"&gt;&lt;/i&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        {% endfor %}
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+</code></pre>
+<p>There are few important things to make the crud buttons work:</p>
+<ul>
+<li><code>id</code> should be equal to mentioned above <code>data-entity</code></li>
+<li>each <code>tr</code> element should have <code>data-type</code> equal to the <code>id</code> of table and <code>data-entity</code> passed on form</li>
+<li>each <code>tr</code> element must have this classes <code>trash-parent</code>, <code>editable-parent</code>, <code>save-parent</code><ul>
+<li>each one is responsible for specified thing (removal/editing/saving) elements</li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tips-and-tricks-special-controllers/" class="btn btn-neutral float-right" title="Tips and tricks - special controllers">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../adding-menu-elements/" class="btn btn-neutral" title="Adding menu elements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../adding-menu-elements/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../tips-and-tricks-special-controllers/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

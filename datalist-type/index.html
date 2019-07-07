@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>DataList Type - Personal Management System</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "DataList Type";
+    var mkdocs_page_input_path = "datalist-type.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Personal Management System</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../requirements/">Requirements</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../developer-mode/">Developer mode</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../writing-module-backend/">Writing module - backend</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../writing-module-frontend/">Writing module - frontend</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding-menu-elements/">Adding menu elements</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tips-and-tricks-automatition/">Tips and tricks - automatition</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tips-and-tricks-special-controllers/">Tips and tricks - special controllers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tips-and-tricks-patterns/">Tips and tricks - patterns</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">DataList Type</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#datalist-type">DataList type</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#form-construction-example">Form construction example</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fontawesome-type/">Fontawesomepicker Type</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../final-thoughts/">Final thoughts</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Personal Management System</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>DataList Type</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="datalist-type">DataList type</h1>
+<p>This is a custom form type based on <strong>ChoicesType</strong></p>
+<ul>
+<li>The logic behind it a bit tricky since I wanted to have choices but also possibility to add new choice element if there is nothing interesting on list</li>
+<li>Because of this and because of how <strong>ChoicesType</strong> works I had to create controller for handling the form events</li>
+<li>This special controller can be found in: <code>src/Form/Events/DatalistLogicOverride.php</code></li>
+<li>What it does<ul>
+<li>So generally DataList itself don't work correctly - symfony ignores the new insterted element</li>
+<li>In my controller I pretty much do this:<ul>
+<li>Overwrite the form data to pretend that everything is ok: pass the <code>isValid()</code></li>
+<li>And then save the new data</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>Cheating! But works...</code></p>
+<h2 id="form-construction-example">Form construction example</h2>
+<pre><code>static::$choices = (is_array($options) ? $options['goals'] : []);
+$builder
+        -&gt;add('Date', null, [
+            'attr' =&gt; [
+                'data-provide' =&gt; "datepicker",
+                'data-date-format' =&gt; "yyyy-mm-dd",
+                'data-date-today-highlight' =&gt; true,
+                'autocomplete' =&gt; 'off'
+            ],
+            'data' =&gt; date('Y-m-d')
+        ])
+        -&gt;add('Description', null, [
+            'attr' =&gt; [
+                'autocomplete' =&gt; 'off'
+            ]
+        ])
+        -&gt;add('Minutes', null, [
+            'attr' =&gt; [
+                'autocomplete' =&gt; 'off'
+            ]
+        ]);
+
+    if(!empty(static::$choices)){
+
+        $builder
+            -&gt;add('Goal', DatalistType::class, [
+                'choices'  =&gt; $options['goals'],
+                'required' =&gt; false
+            ])
+            -&gt;addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
+                DatalistLogicOverride::postSubmit($event);
+            })
+            -&gt;addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
+                DatalistLogicOverride::preSubmit($event, ['Goal'], static::$choices);
+            });
+
+    }else{
+        $builder
+            -&gt;add('Goal', TextType::class, [
+                'required' =&gt; false
+            ]);
+    }
+
+    $builder-&gt;add('Type', ChoiceType::class, [
+        'choices' =&gt; $options['entity_enums'],
+        'attr' =&gt; [
+            'autocomplete' =&gt; 'off'
+        ]
+    ]);
+    $builder-&gt;add('submit', SubmitType::class);
+</code></pre>
+<ul>
+<li>
+<p>You need to pass choices from controller</p>
+<pre><code>foreach ($goalsWithTimes as $goalWithTime) {
+    $goals[] = $goalWithTime[MyJobAfterhoursRepository::GOAL_FIELD];
+}
+
+return $this-&gt;createForm(MyJobAfterhoursType::class, null, [
+    'entity_enums' =&gt; $this-&gt;entity_enums,
+    'goals'        =&gt; $goals,
+]);
+</code></pre>
+</li>
+<li>
+<p>Next thing is that array passed to choices should have <strong>keys</strong> equal to <strong>values</strong> but don't worry my controller will change the array construction anyway</p>
+</li>
+<li>
+<p>The problem is with the situation where there is NO choice yet defined, then the form won't work, and that's why here comes this solution:</p>
+<pre><code>if(!empty(static::$choices)){
+
+    $builder
+        -&gt;add('Goal', DatalistType::class, [
+            'choices'  =&gt; $options['goals'],
+            'required' =&gt; false
+        ])
+        -&gt;addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
+            DatalistLogicOverride::postSubmit($event);
+        })
+        -&gt;addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
+            DatalistLogicOverride::preSubmit($event, ['Goal'], static::$choices);
+        });
+
+}else{
+    $builder
+        -&gt;add('Goal', TextType::class, [
+            'required' =&gt; false
+        ]);
+}
+</code></pre>
+</li>
+<li>
+<p>If not types - then normal <strong>TextType</strong></p>
+</li>
+<li>Else <strong>DataListType</strong>        </li>
+<li>Also pay attention on the <code>preSubmit</code> second Param - You pass here names of fields which are DatalistType<ul>
+<li>This is needed because controller overwrites the <code>$event</code> which has names of fields so it needs to know which fields should be changed</li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../fontawesome-type/" class="btn btn-neutral float-right" title="Fontawesomepicker Type">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../tips-and-tricks-patterns/" class="btn btn-neutral" title="Tips and tricks - patterns"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../tips-and-tricks-patterns/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../fontawesome-type/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
