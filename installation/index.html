@@ -68,6 +68,8 @@
         
             <li><a class="toctree-l3" href="#general">General</a></li>
         
+            <li><a class="toctree-l3" href="#problems-tips">Problems - tips</a></li>
+        
         </ul>
     
 
@@ -234,15 +236,6 @@
 </ul>
 </li>
 </ul>
-<h3 id="permissions">Permissions</h3>
-<ul>
-<li>In <code>root folder of project</code> run this commands:<ul>
-<li><code>sudo chown -R www-data var</code></li>
-<li><code>sudo chgrp -R www-data var</code></li>
-<li><code>sudo chmod -R 777 var</code>    </li>
-</ul>
-</li>
-</ul>
 <h3 id="configuring-environment">Configuring environment</h3>
 <ul>
 <li>Create a database that You will use for this application<ul>
@@ -316,6 +309,15 @@
 </ul>
 </li>
 </ul>
+<h3 id="permissions">Permissions</h3>
+<ul>
+<li>In <code>root folder of project</code> run this commands:<ul>
+<li><code>sudo chown -R www-data var</code></li>
+<li><code>sudo chgrp -R www-data var</code></li>
+<li><code>sudo chmod -R 777 var</code>    </li>
+</ul>
+</li>
+</ul>
 <h3 id="starting-application">Starting application</h3>
 <ul>
 <li>Now run symfony server as described: <ul>
@@ -334,6 +336,60 @@
 <li>(or other port that've You added) </li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<h2 id="problems-tips">Problems - tips</h2>
+<p><em>I've tested project few times on Ubuntu <strong>18.x</strong> and Ubuntu <strong>19.x</strong>, (clean and already with packages) and I found several problems which not really are 
+a part of installation guide but, it will help You in case of problems</em></p>
+<ul>
+<li><strong>Php xml extenstion</strong> - this might happen when trying to install packages from composer<ul>
+<li>Follow this <a href="https://stackoverflow.com/questions/38793676/php-xml-extension-not-installed">guide</a><ul>
+<li><code>sudo apt-get install php-xml</code></li>
+<li><code>sudo service apache2 restart</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>NodeJS</strong> - on disco dingo installing NodeJS installed via package manager didn't worked well. Generally it's recommended to use <strong>NodeJS 9</strong>*, but this 
+solution also worked:<ul>
+<li><code>curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -</code> (I don't remember but most likely without the <code>-</code> on end)</li>
+<li><code>sudo apt-get install -y nodejs</code></li>
+</ul>
+</li>
+<li><strong>Npm</strong> - on disco dingo i had strange situation which didn't occurred on Ubuntu 18.<ul>
+<li>I've wrote above that You need to do this:<ul>
+<li><code>npm i node-sass -g --unsafe-perm</code></li>
+<li><code>nodejs node_modules/node-sass/scripts/install.js</code>    </li>
+</ul>
+</li>
+<li>It doesn't worked on disco dingo, I had to do this:<ul>
+<li><code>npm i node-sass --unsafe-perm</code></li>
+<li><code>nodejs node_modules/node-sass/scripts/install.js</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Can't login/sql_mode</strong> - You might be unable to login (without any errors - due to debugging off), but You need to turn off full_group_by, You need to 
+turn it off anyway otherwise sqls in repositories won't work and dashboard will crash:<ul>
+<li>Follow this <a href="https://tableplus.io/blog/2018/08/mysql-how-to-turn-off-only-full-group-by.html">guide</a></li>
+<li>Just edit <code>my.cnf</code><ul>
+<li>If on the end there is no section <code>[mysqld]</code> then add it and below add what they write, for example it <strong>might</strong> be:<ul>
+<li><code>sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION</code></li>
+</ul>
+</li>
+<li>Restart Mysql server <code>service mysql restart</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Access denied</strong> - when running <code>schema update</code>. You need to create new user and give him full privileges:<ul>
+<li>Follow this <a href="https://linuxize.com/post/how-to-create-mysql-user-accounts-and-grant-privileges/">guide</a><ul>
+<li><code>CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'user_password';</code></li>
+<li><code>GRANT ALL PRIVILEGES ON database_name.* TO 'database_user'@'localhost';</code></li>
+</ul>
+</li>
+<li>Then use that user and password to set connection in <code>.env</code>   </li>
 </ul>
 </li>
 </ul>
