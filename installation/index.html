@@ -162,6 +162,7 @@
 <ul>
 <li>I will not guide You here how to setup DB, what composer or node can do - just step by step guide and hints to make this project work</li>
 <li>Keep in mind that i write 98% of everything here from perspective of <strong>Linux</strong></li>
+<li>It's important to follow this sections one after another, for example You can't make services before permissions because You won't be able to generate key</li>
 </ul>
 <h2 id="linux">Linux</h2>
 <ul>
@@ -266,6 +267,32 @@
 </ul>
 </li>
 </ul>
+<h4 id="building-cache">Building cache</h4>
+<ul>
+<li>Now run this commands one after another <ul>
+<li><code>sudo bin/console cache:clear</code></li>
+<li><code>sudo bin/console cache:warmup</code></li>
+<li><code>sudo bin/console doctrine:schema:update --env=dev --force</code><ul>
+<li>this is very important, due to symfony issues, making diff, or normal update generates incorrect sql where some nullable fields are NOT NULL</li>
+</ul>
+</li>
+<li><code>sudo bin/console fos:user:create --super-admin</code>
+</br>
+</br>
+<em>Info – You got to make it as sudo otherwise You will need to set groups, permissions etc. twice. 
+After setting permissions sudo won't be needed for this commands.</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="permissions">Permissions</h3>
+<ul>
+<li>In <code>root folder of project</code> run this commands:<ul>
+<li><code>sudo chown -R www-data var</code></li>
+<li><code>sudo chgrp -R www-data var</code></li>
+<li><code>sudo chmod -R 777 var</code>    </li>
+</ul>
+</li>
+</ul>
 <h4 id="services">Services</h4>
 <ul>
 <li>
@@ -293,28 +320,6 @@
     locale: 'en' #Leave any other subsections like this one
     encrypt_key: 'YourGeneratedKey goes here'</code> </p>
 </li>
-</ul>
-</li>
-</ul>
-<h4 id="building-cache">Building cache</h4>
-<ul>
-<li>Now run this commands one after another <ul>
-<li><code>bin/console cache:clear</code></li>
-<li><code>bin/console cache:warmup</code></li>
-<li><code>bin/console doctrine:schema:update --env=dev --force</code><ul>
-<li>this is very important, due to symfony issues, making diff, or normal update generates incorrect sql where some nullable fields are NOT NULL</li>
-</ul>
-</li>
-<li><code>bin/console fos:user:create --super-admin</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="permissions">Permissions</h3>
-<ul>
-<li>In <code>root folder of project</code> run this commands:<ul>
-<li><code>sudo chown -R www-data var</code></li>
-<li><code>sudo chgrp -R www-data var</code></li>
-<li><code>sudo chmod -R 777 var</code>    </li>
 </ul>
 </li>
 </ul>
