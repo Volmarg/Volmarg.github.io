@@ -222,20 +222,6 @@
 </li>
 </ul>
 </li>
-<li>
-<p>Run <code>composer require symfony/web-server-bundle --dev</code></p>
-</li>
-<li>
-<p>Now in normal case You would most likely need just one command to install packages but there are so messed up dependencies:</p>
-</li>
-<li>Run this commands one after another: (I recommend sudo - permission to write) (around 300 mb download)<ul>
-<li><code>npm update</code></li>
-<li><code>npm install -g --unsafe-perm</code></li>
-<li><code>npm i node-sass -g --unsafe-perm</code></li>
-<li><code>nodejs node_modules/node-sass/scripts/install.js</code></li>
-<li><code>npm rebuild node-sass</code></li>
-</ul>
-</li>
 </ul>
 <h3 id="configuring-environment">Configuring environment</h3>
 <ul>
@@ -352,25 +338,6 @@ a part of installation guide but, it will help You in case of problems</em></p>
 <li>Follow this <a href="https://stackoverflow.com/questions/38793676/php-xml-extension-not-installed">guide</a><ul>
 <li><code>sudo apt-get install php-xml</code></li>
 <li><code>sudo service apache2 restart</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>NodeJS</strong> - on disco dingo installing NodeJS installed via package manager didn't worked well. Generally it's recommended to use <strong>NodeJS 9</strong>*, but this 
-solution also worked:<ul>
-<li><code>curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -</code> (I don't remember but most likely without the <code>-</code> on end)</li>
-<li><code>sudo apt-get install -y nodejs</code></li>
-</ul>
-</li>
-<li><strong>Npm</strong> - on disco dingo i had strange situation which didn't occurred on Ubuntu 18.<ul>
-<li>I've wrote above that You need to do this:<ul>
-<li><code>npm i node-sass -g --unsafe-perm</code></li>
-<li><code>nodejs node_modules/node-sass/scripts/install.js</code>    </li>
-</ul>
-</li>
-<li>It doesn't worked on disco dingo, I had to do this:<ul>
-<li><code>npm i node-sass --unsafe-perm</code></li>
-<li><code>nodejs node_modules/node-sass/scripts/install.js</code></li>
 </ul>
 </li>
 </ul>

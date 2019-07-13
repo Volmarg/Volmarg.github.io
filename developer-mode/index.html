@@ -71,7 +71,11 @@
         
             <li><a class="toctree-l3" href="#webpack-encore-watcher">Webpack Encore Watcher</a></li>
         
+            <li><a class="toctree-l3" href="#nodejs">NodeJs</a></li>
+        
             <li><a class="toctree-l3" href="#problems">Problems</a></li>
+        
+            <li><a class="toctree-l3" href="#nodejs-and-npm-tips">NodeJs and NPM - tips</a></li>
         
         </ul>
     
@@ -197,6 +201,20 @@
 </ul>
 </li>
 </ul>
+<h2 id="nodejs">NodeJs</h2>
+<p>You will need NodeJs (with npm). Follow the steps below:</p>
+<ul>
+<li>In normal case You would most likely need just one command to install packages but there are some messed up dependencies:</li>
+<li>Run this commands one after another: (I recommend sudo - permission to write) (around 300 mb download)<ul>
+<li><code>npm update</code></li>
+<li><code>npm install -g --unsafe-perm</code></li>
+<li><code>npm i node-sass -g --unsafe-perm</code></li>
+<li><code>nodejs node_modules/node-sass/scripts/install.js</code></li>
+<li><code>npm rebuild node-sass</code></li>
+</ul>
+</li>
+<li>You might need to change project folder permissions and groups after that but there shouldn't be any problem     </li>
+</ul>
 <h2 id="problems">Problems</h2>
 <ul>
 <li>You must understand that plenty of simple plugins etc just won't work with webpack easily or won't work at all<ul>
@@ -210,7 +228,29 @@
 <li><strong>assets</strong> - compiled by Encore</li>
 <li><strong>assets_</strong> - your own scripts<ul>
 <li>For example libraries that don't work with Webpack</li>
-<li>Then is another problem <strong>assets_</strong> use pure JS, because Webpack handles JQ        </li>
+<li>Then is another problem <strong>assets_</strong> use pure JS, because Webpack handles JQ  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="nodejs-and-npm-tips">NodeJs and NPM - tips</h2>
+<ul>
+<li><strong>NodeJS</strong> - on disco dingo installing NodeJS via package manager didn't worked well. Generally it's recommended to use <strong>NodeJS 9</strong>, but this 
+solution also worked:<ul>
+<li><code>curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -</code> (I don't remember but most likely without the <code>-</code> on end)</li>
+<li><code>sudo apt-get install -y nodejs</code></li>
+</ul>
+</li>
+<li><strong>Npm</strong> - on disco dingo i had strange situation which didn't occurred on Ubuntu 18.<ul>
+<li>I've wrote above that You need to do this:<ul>
+<li><code>npm i node-sass -g --unsafe-perm</code></li>
+<li><code>nodejs node_modules/node-sass/scripts/install.js</code>    </li>
+</ul>
+</li>
+<li>It doesn't worked on disco dingo, I had to do this:<ul>
+<li><code>npm i node-sass --unsafe-perm</code></li>
+<li><code>nodejs node_modules/node-sass/scripts/install.js</code>              </li>
 </ul>
 </li>
 </ul>
