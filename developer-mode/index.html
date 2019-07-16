@@ -69,9 +69,9 @@
         
             <li><a class="toctree-l3" href="#server">Server</a></li>
         
-            <li><a class="toctree-l3" href="#webpack-encore-watcher">Webpack Encore Watcher</a></li>
-        
             <li><a class="toctree-l3" href="#nodejs">NodeJs</a></li>
+        
+            <li><a class="toctree-l3" href="#webpack-encore-watcher">Webpack Encore Watcher</a></li>
         
             <li><a class="toctree-l3" href="#problems">Problems</a></li>
         
@@ -169,12 +169,24 @@
 </li>
 </ul>
 <h2 id="server">Server</h2>
-<p>This part is simple.</p>
 <ul>
 <li>Keep Your symfony server running: <code>bin/console server:run 0.0.0.0:8001</code></li>
 </ul>
+<h2 id="nodejs">NodeJs</h2>
+<p>You will need NodeJs (with npm). Follow the steps below:</p>
+<ul>
+<li>In normal case You would most likely need just one command to install packages but there are some messed up dependencies:</li>
+<li>Run this commands one after another: (I recommend sudo - permission to write) (around 300 mb download)<ul>
+<li><code>npm update</code></li>
+<li><code>npm install -g --unsafe-perm</code></li>
+<li><code>npm i node-sass -g --unsafe-perm</code></li>
+<li><code>nodejs node_modules/node-sass/scripts/install.js</code></li>
+<li><code>npm rebuild node-sass</code></li>
+</ul>
+</li>
+<li>You might need to change project folder permissions and groups after that but there shouldn't be any problem     </li>
+</ul>
 <h2 id="webpack-encore-watcher">Webpack Encore Watcher</h2>
-<p>This is one is also simple</p>
 <ul>
 <li>Open cli in the root of Your project</li>
 <li>Runt this command as <strong>sudo</strong><ul>
@@ -200,20 +212,12 @@
 </li>
 </ul>
 </li>
-</ul>
-<h2 id="nodejs">NodeJs</h2>
-<p>You will need NodeJs (with npm). Follow the steps below:</p>
+<li>
+<p>Creating output <em>css</em> and <em>js</em> for production (around 80% compression 20mb -&gt; 2/3mb but takes more time), run this command in root of project:</p>
 <ul>
-<li>In normal case You would most likely need just one command to install packages but there are some messed up dependencies:</li>
-<li>Run this commands one after another: (I recommend sudo - permission to write) (around 300 mb download)<ul>
-<li><code>npm update</code></li>
-<li><code>npm install -g --unsafe-perm</code></li>
-<li><code>npm i node-sass -g --unsafe-perm</code></li>
-<li><code>nodejs node_modules/node-sass/scripts/install.js</code></li>
-<li><code>npm rebuild node-sass</code></li>
+<li><code>./node_modules/.bin/encore production</code> (you don't want to watch it - it will take like 1 min to compress)</li>
 </ul>
 </li>
-<li>You might need to change project folder permissions and groups after that but there shouldn't be any problem     </li>
 </ul>
 <h2 id="problems">Problems</h2>
 <ul>
