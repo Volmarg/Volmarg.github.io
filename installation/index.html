@@ -213,7 +213,6 @@
 <li>My downloaded repository</li>
 </ul>
 <h3 id="installing-packages">Installing packages</h3>
-<p><code>You will see ALOT of errors with npm packages - ignore them, everything works anyway.</code></p>
 <ul>
 <li>Run <code>composer install</code> (as sudo) (around 100mb to download) <ul>
 <li>In case You have this error <code>An error occurred: Could not resolve host: security.sensiolabs.org.</code><ul>
@@ -259,14 +258,13 @@
 <li><code>sudo bin/console cache:clear</code></li>
 <li><code>sudo bin/console cache:warmup</code></li>
 <li><code>sudo bin/console doctrine:schema:update --env=dev --force</code><ul>
-<li>this is very important, due to symfony issues, making diff, or normal update generates incorrect sql where some nullable fields are NOT NULL</li>
-</ul>
-</li>
-<li><code>sudo bin/console fos:user:create --super-admin</code>
+<li>this is very important, due to symfony issues, making diff, or normal update generates incorrect sql where some nullable fields are NOT NULL
 </br>
 </br>
 <em>Info – You got to make it as sudo otherwise You will need to set groups, permissions etc. twice. 
 After setting permissions sudo won't be needed for this commands.</em></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -306,6 +304,13 @@ After setting permissions sudo won't be needed for this commands.</em></li>
     locale: 'en' #Leave any other subsections like this one
     encrypt_key: 'YourGeneratedKey goes here'</code> </p>
 </li>
+</ul>
+</li>
+</ul>
+<h3 id="creating-user">Creating user</h3>
+<ul>
+<li>Run this command to create new user<ul>
+<li><code>sudo bin/console fos:user:create --super-admin</code></li>
 </ul>
 </li>
 </ul>
