@@ -69,6 +69,11 @@ module.exports = {
           label: 'CodersRank',
           position: 'right',
         },
+        {
+          href: 'http://voltigo.pl/',
+          label: 'Voltigo',
+          position: 'right',
+        },
       ],
     },
     footer: {
